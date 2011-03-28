@@ -12,6 +12,35 @@
 	{{ content }}
 	</div>
       </div>
+      <script language="javascript">
+if (typeof jQuery == 'undefined') {
+    var jQ = document.createElement('script');
+    jQ.type = 'text/javascript';
+    jQ.onload=loadDeps;
+    jQ.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js';
+    document.body.appendChild(jQ);
+} else {
+    loadDeps();
+}
+function loadDeps() {
+	jQuery.ajax({url: "http://www.karacos.org/login",
+				dataType: "json",
+				contentType: 'application/json',
+				type: "GET",
+				success: function(data) {
+					console.log(data);
+				}
+				});
+    jQuery.getScript('https://github.com/bergie/VIE/raw/master/underscore-min.js', function() { 
+        jQuery.getScript('https://github.com/bergie/VIE/raw/master/backbone-min.js', function() { 
+            jQuery.getScript('https://github.com/bergie/VIE/raw/master/vie.js', function() {
+                console.log("All set");
+            });
+        });
+    });
+};
+      	
+      </script>
     </body>
 </html>
 
