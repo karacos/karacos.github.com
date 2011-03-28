@@ -1,3 +1,8 @@
+---
+layout: default
+title: Accueil
+---
+
 KaraCos wsgi on github
 ======================
 
